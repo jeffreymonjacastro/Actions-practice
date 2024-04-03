@@ -50,4 +50,4 @@ jobs:
       env:
         TEST-CODE_RESULTS: ${{ steps.test-root.outputs.result }}
       with:
-        runners: "test-root, test-ids"
+        runners: "test-root,test-ids"
