@@ -1,8 +1,8 @@
 name: Autograding Test
 
 on:
-  - push
-  - workflow_dispatch
+  push:
+    branches: [ "main" ]
 
 permissions:
   checks: write
