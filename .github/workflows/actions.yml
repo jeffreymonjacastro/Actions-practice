@@ -13,14 +13,23 @@ jobs:
   run-autograding-test:
     runs-on: ubuntu-latest
     steps:
-    - name: Test code
-      id: test-code
+    - name: Test root
+      id: test-root
       uses: education/autograding-command-grader@v1
       with:
-        test-name: 'Test 1'
+        test-name: 'Test Root'
         command: pytest test_main.py::test_root
         timeout: 10
-        max-score: 20
+        max-score: 2
+      
+    - name: Test ids
+      id: test-ids
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Test ids'
+        command: pytest test_main.py::test_ids
+        timeout: 10
+        max-score: 3
         
     - name: Autograding Reporter
       uses: education/autograding-grading-reporter@v1

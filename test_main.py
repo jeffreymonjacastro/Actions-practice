@@ -12,3 +12,10 @@ def test_root(client):
 
     assert response.status_code == 200
     assert response.json()["message"] == "Hola"
+
+def test_ids(client):
+    id = 10
+    response = client.get(f"id/{id}")
+
+    assert response.status_code == 200
+    assert response.json()["id"] == id
