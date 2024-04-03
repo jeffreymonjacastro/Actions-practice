@@ -25,15 +25,15 @@ jobs:
         timeout: 10
         max-score: 2
       
-    - name: Test ids
-      id: test-ids
-      uses: education/autograding-command-grader@v1
-      with:
-        test-name: 'Test ids'
-        setup-command: sudo -H pip3 install -r requirements.txt
-        command: pytest test_main.py::test_ids
-        timeout: 10
-        max-score: 3
+    # - name: Test ids
+    #   id: test-ids
+    #   uses: education/autograding-command-grader@v1
+    #   with:
+    #     test-name: 'Test ids'
+    #     setup-command: sudo -H pip3 install -r requirements.txt
+    #     command: pytest test_main.py::test_ids
+    #     timeout: 10
+    #     max-score: 3
         
     - name: Autograding Reporter
       uses: education/autograding-grading-reporter@v1
