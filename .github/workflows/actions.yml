@@ -1,8 +1,8 @@
 name: Autograding Test
 
-on:
-  push:
-    branches: [ "main" ]
+'on':
+  - push
+  - workflow_dispatch
 
 permissions:
   checks: write
@@ -12,6 +12,8 @@ permissions:
 jobs:
   run-autograding-test:
     runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    
     steps:
     - name: Test root
       id: test-root
