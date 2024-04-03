@@ -1,8 +1,8 @@
 name: Autograding Test
 
 on:
-  push:
-    branches: [ "main" ]
+  - push
+  - workflow_dispatch
 
 permissions:
   checks: write
@@ -48,6 +48,7 @@ jobs:
     - name: Autograding Reporter
       uses: education/autograding-grading-reporter@v1
       env:
-        TEST-CODE_RESULTS: ${{ steps.test-root.outputs.result }}
+        TEST-ROOT_RESULTS: ${{ steps.test-root.outputs.result }}
+        TEST-IDS_RESULTS: ${{ steps.test-ids.outputs.result }}
       with:
-        runners: "test-root,test-ids"
+        runners: test-root,test-ids
