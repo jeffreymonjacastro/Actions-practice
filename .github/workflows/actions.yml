@@ -1,6 +1,6 @@
 name: Autograding Test
 
-'on':
+on:
   - push
   - workflow_dispatch
 
@@ -12,7 +12,6 @@ permissions:
 jobs:
   run-autograding-test:
     runs-on: ubuntu-latest
-    if: github.actor != 'github-classroom[bot]'
 
     steps:
     - name: Test root
@@ -20,7 +19,7 @@ jobs:
       uses: education/autograding-command-grader@v1
       with:
         test-name: 'Test Root'
-        # setup-command: sudo -H pip3 install -r requirements.txt
+        setup-command: sudo -H pip3 install -r requirements.txt
         command: pytest test_main.py::test_root
         timeout: 10
         max-score: 2
