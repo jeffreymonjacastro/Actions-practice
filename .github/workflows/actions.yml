@@ -13,14 +13,14 @@ jobs:
   run-autograding-test:
     runs-on: ubuntu-latest
     if: github.actor != 'github-classroom[bot]'
-    
+
     steps:
     - name: Test root
       id: test-root
       uses: education/autograding-command-grader@v1
       with:
         test-name: 'Test Root'
-        setup-command: sudo -H pip3 install -r requirements.txt
+        setup-command: sudo -H pip3 install pytest
         command: pytest test_main.py::test_root
         timeout: 10
         max-score: 2
@@ -30,7 +30,7 @@ jobs:
       uses: education/autograding-command-grader@v1
       with:
         test-name: 'Test ids'
-        setup-command: sudo -H pip3 install -r requirements.txt
+        setup-command: sudo -H pip3 install pytest
         command: pytest test_main.py::test_ids
         timeout: 10
         max-score: 3
