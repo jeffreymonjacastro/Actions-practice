@@ -48,6 +48,6 @@ jobs:
     - name: Autograding Reporter
       uses: education/autograding-grading-reporter@v1
       env:
-        TEST-CODE_RESULTS: "${{steps.test-ids.outputs.result}}"
+        TEST-CODE_RESULTS: ${{ steps.test-root.outputs.result }}
       with:
-        runners: test-ids
+        runners: "test-root, test-ids"
